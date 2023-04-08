@@ -1,0 +1,21 @@
+dashboard:
+  menu:
+    administration: Администрирование
+
+roles:
+  admin: Администратор
+  user: Пользователь
+  guest: Гость
+
+crud:
+  user:
+    singular: Пользователь
+    plural: Пользователи
+    field:
+      id: Идентификатор
+      username: Имя пользователя
+      email: Адрес электронной почты
+      roles: Роли
+      password_new: Новый пароль
+      password_repeat: Повторите пароль
+
