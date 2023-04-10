@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\LabWork;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -34,6 +35,8 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::section('dashboard.menu.administration');
 
         yield MenuItem::linkToCrud('crud.user.plural', 'fa fa-user', User::class);
+
+        yield MenuItem::linkToCrud('crud.lab_work.plural', 'fa fa-book', LabWork::class);
     }
 
     #[Required]

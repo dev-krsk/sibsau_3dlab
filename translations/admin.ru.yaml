@@ -18,4 +18,12 @@ crud:
       roles: Роли
       password_new: Новый пароль
       password_repeat: Повторите пароль
+  lab_work:
+    singular: Лабораторная работа
+    plural: Лабораторные работы
+    field:
+      id: Идентификатор
+      system_name: Системное имя
+      visible_name: Отображаемое имя
+      description: Описание
 
