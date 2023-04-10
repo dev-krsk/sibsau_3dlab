@@ -1,0 +1,6 @@
+page_title:
+  new: '%entity_label_singular% - создание'
+  edit: '%entity_label_singular% - редактирование'
+
+action:
+  new: Создать
