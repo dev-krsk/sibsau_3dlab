@@ -26,4 +26,18 @@ crud:
       system_name: Системное имя
       visible_name: Отображаемое имя
       description: Описание
+  contract:
+    singular: Договор
+    plural: Договоры
+    field:
+      id: Идентификатор
+      user: Пользователь
+      name: Наименование
+      created_at: Дата начала
+      removed_at: Дата окончания
+      contents: Список лабораторных работ
+    validate:
+      removed_at:
+        Дата окончания не может быть меньше даты начала договора
+
 

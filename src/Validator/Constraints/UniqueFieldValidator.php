@@ -21,7 +21,7 @@ class UniqueFieldValidator extends \Symfony\Component\Validator\ConstraintValida
     /**
      * @inheritDoc
      */
-    public function validate($value, Constraint $constraint)
+    public function validate($value, Constraint $constraint): void
     {
         if (!$constraint instanceof UniqueField) {
             throw new UnexpectedTypeException($constraint, UniqueField::class);
@@ -44,6 +44,7 @@ class UniqueFieldValidator extends \Symfony\Component\Validator\ConstraintValida
                 ->setParameter('{{ value }}', $this->formatValue($value))
                 ->setCode(UniqueField::ALREADY_EXISTS)
                 ->setInvalidValue($value)
+                ->atPath($this->context->getPropertyName())
                 ->addViolation();
         }
     }
