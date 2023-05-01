@@ -39,5 +39,12 @@ crud:
     validate:
       removed_at:
         Дата окончания не может быть меньше даты начала договора
+  content_contract:
+    field:
+      lab_work: Лабораторная работа
+      parent: Использовать даты договора
+      created_at: Дата начала
+      removed_at: Дата окончания
+
 
 

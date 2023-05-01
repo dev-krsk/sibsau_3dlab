@@ -34,7 +34,7 @@ class Contract
     #[Assert\NotBlank]
     private ?string $name = null;
 
-    #[ORM\OneToMany(mappedBy: 'contract', targetEntity: ContentContract::class, orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'contract', targetEntity: ContentContract::class, orphanRemoval: true, cascade: ['persist', 'remove'])]
     private Collection $contents;
 
     public function __construct()

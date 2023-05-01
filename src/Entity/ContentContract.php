@@ -27,6 +27,8 @@ class ContentContract
     #[ORM\JoinColumn(nullable: false)]
     private ?LabWork $labWork = null;
 
+    private bool $parent = false;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -49,7 +51,7 @@ class ContentContract
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeImmutable $createdAt): self
+    public function setCreatedAt(?\DateTimeImmutable $createdAt): self
     {
         $this->createdAt = $createdAt;
 
@@ -79,4 +81,23 @@ class ContentContract
 
         return $this;
     }
+
+    public function isParent(): bool
+    {
+        return $this->getContract() && $this->getCreatedAt() == $this->getContract()->getCreatedAt() && $this->getRemovedAt() == $this->getContract()->getRemovedAt();
+    }
+
+    public function setParent(bool $parent): self
+    {
+        $this->parent = $parent;
+
+        return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->getLabWork();
+    }
+
+
 }
