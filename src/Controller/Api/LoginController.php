@@ -1,18 +1,19 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Api;
 
+use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Attribute\CurrentUser;
 
-use App\Entity\User;
-
-class ApiLoginController extends AbstractController
+class LoginController extends AbstractController
 {
     #[Route('/api/login', name: 'api_login')]
-    public function index(#[CurrentUser] ?User $user): JsonResponse
+    public function index(#[CurrentUser] ?User $user): JsonResponse|RedirectResponse
     {
         if (null === $user) {
             return $this->json([
@@ -20,11 +21,6 @@ class ApiLoginController extends AbstractController
             ], Response::HTTP_UNAUTHORIZED);
         }
 
-        $token =  '';
-
-        return $this->json([
-            'user'  => $user->getUserIdentifier(),
-            'token' => $token,
-        ]);
+        return $this->redirectToRoute('api_main_index');
     }
 }
